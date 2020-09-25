@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mini Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h1>差值表达式</h1>
+    <h3>{{ msg }}</h3>
+    <h3>{{ count }}</h3>
+    <h1>v-text</h1>
+    <div v-text="msg"></div>
+    <h1>v-model</h1>
+    <div v-html="myHtml"></div>
+    <h1>v-html</h1>
+    <input type="text" v-model="msg">
+    <input type="text" v-model="count">
+    <button v-on:click="handler">按钮</button>
+  </div>
+  <script src="./dep.js"></script>
+  <script src="./watcher.js"></script>
+  <script src="./compiler.js"></script>
+  <script src="./observer.js"></script>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue',
+        count: 100,
+        myHtml: '<h4>这是v-html编译的</h4>',
+        person: { name: 'zs' }
+      },
+      methods: {
+        handler () {
+          console.log(333)
+        }
+      }
+    })
+    // console.log(vm)
+    // console.log(vm.msg)
+    // vm.msg = { test: 'Hello' }
+    // vm.test = 'abc'
+  </script>
+</body>
+</html>
